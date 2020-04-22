@@ -7,9 +7,9 @@ module.exports = {
             ,message: ''
         });
     },
-    addPortfolioPage: (req, res) => {
-        if (!req.files) {
-            return res.status(400).send("No files were uploaded.");
+    addPortfolio: (req, res) => {
+        if (!req.title) {
+            return res.status(400).send("Submission was not uploaded.");
         }
 
         let message = '';
@@ -58,7 +58,7 @@ module.exports = {
             });
         });
     },
-    editPortfolioPage: (req, res) => {
+    editPortfolio: (req, res) => {
         let portfolioId = req.params.id;
         let title = req.body.title;
         let description = req.body.description;
@@ -74,7 +74,7 @@ module.exports = {
   
   
   
-   deletePortfolioSubmission: (req, res) => {
+ /*  deletePortfolioSubmission: (req, res) => {
         let portfolioId = req.params.id;
         let deleteUserQuery = 'DELETE FROM portfolio WHERE id = "' + portfolioId + '"';
 
@@ -86,7 +86,7 @@ module.exports = {
                     }
                     res.redirect('/');
                 });
-            }
+            }*/
 
         }; 
 
