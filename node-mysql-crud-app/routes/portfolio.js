@@ -3,12 +3,12 @@ const fs = require('fs');
 module.exports = {
     addPortfolioPage: (req, res) => {
         res.render('add-portfolio.ejs', {
-            title: "Welcome | Add To Portolio"
+            title: "Welcome | Add To Portfolio"
             ,message: ''
         });
     },
     addPortfolio: (req, res) => {
-        if (!req.title) {
+        if (!req.body.title) {
             return res.status(400).send("Submission was not uploaded.");
         }
 
@@ -31,8 +31,8 @@ module.exports = {
                     title: "Welcome | Add To Portfolio"
                 });
             } 
-                        // send the player's details to the database
-                        let query = "INSERT INTO `portolio` (title, description) VALUES ('" +
+                        // send the submission details to the database
+                        let query = "INSERT INTO `portfolio` (title, description) VALUES ('" +
                             title + "', '" + description + "')";
                         db.query(query, (err, result) => {
                             if (err) {
@@ -53,7 +53,7 @@ module.exports = {
             }
             res.render('edit-portfolio.ejs', {
                 title: "Edit Portfolio"
-                ,player: result[0]
+                ,portfolios: result[0]
                 ,message: ''
             });
         });
@@ -62,8 +62,9 @@ module.exports = {
         let portfolioId = req.params.id;
         let title = req.body.title;
         let description = req.body.description;
+        let number = req.body.number;
 
-        let query = "UPDATE `portfolio` SET `title` = '" + title + "', `description` = '" + description + "', `number` = '" + number + "' WHERE `portfolio`.`id` = '" + portfolioId + "'";
+        let query = "UPDATE `portfolio` SET `title` = '" + title + "', `description` = '" + description + "' WHERE `portfolio`.`id` = '" + portfolioId + "'";
         db.query(query, (err, result) => {
             if (err) {
                 return res.status(500).send(err);

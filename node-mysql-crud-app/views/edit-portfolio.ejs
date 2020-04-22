@@ -4,16 +4,16 @@
         <p class="text-center text-danger"><%= message %></p>
     <% } %>
 
-    <% if (portfolio) { %>
+    <% if (portfolios) { %>
         <form class="add-portfolio-form" action="" method="post" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="Title">Title</label>
-                    <input type="text" class="form-control" name="Title" id="Title" value="<%= portfolio.title %>" required>
+                    <input type="text" class="form-control" name="Title" id="Title" value="<%= portfolios.title %>" required>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="description">Description</label>
-                    <input type="text" class="form-control" name="description" id="description" value="<%= portfolio.title %>" required>
+                    <input type="text" class="form-control" name="description" id="description" value="<%= portfolios.title %>" required>
                 </div>
                 
             </div>

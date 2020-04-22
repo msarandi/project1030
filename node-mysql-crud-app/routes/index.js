@@ -1,6 +1,6 @@
 module.exports = {
     getHomePage: (req, res) => {
-        let query = "SELECT * FROM `portfolio` ORDER BY id ASC"; 
+        let query = "SELECT * FROM FS1030.portfolio ORDER BY id ASC"; 
 
         // execute query
         db.query(query, (err, result) => {
@@ -9,7 +9,7 @@ module.exports = {
             }
             res.render('index.ejs', {
                 title: "Welcome | View Portfolio"
-                ,players: result
+                ,portfolios: result
             });
         });
     },
