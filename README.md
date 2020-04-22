@@ -1,2 +1,2 @@
 # FS1030
-Individual Project 
+Individual Project
