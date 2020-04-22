@@ -75,9 +75,9 @@ module.exports = {
   
   
   
- /*  deletePortfolioSubmission: (req, res) => {
+ deletePortfolio: (req, res) => {
         let portfolioId = req.params.id;
-        let deleteUserQuery = 'DELETE FROM portfolio WHERE id = "' + portfolioId + '"';
+        let deleteUserQuery = 'DELETE FROM `portfolio` WHERE id = "' + portfolioId + '"';
 
         
            
@@ -87,7 +87,7 @@ module.exports = {
                     }
                     res.redirect('/');
                 });
-            }*/
+            }
 
         }; 
 

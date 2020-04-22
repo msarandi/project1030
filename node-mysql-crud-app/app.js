@@ -40,7 +40,7 @@ app.use(fileUpload()); // configure fileupload
 app.get('/', getHomePage);
 app.get('/add', addPortfolioPage);
 app.get('/edit/:id', editPortfolioPage);
-/* app.get('/delete/:id', deletePortfolioSubmission); */
+app.get('/delete/:id', deletePortfolio); 
 app.post('/add', addPortfolio); 
 app.post('/edit/:id', editPortfolio); 
 
