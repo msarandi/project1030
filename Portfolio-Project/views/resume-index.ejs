@@ -14,16 +14,16 @@
                 <tbody>
                     <% resumes.forEach((resume, index) => { %>
                         <tr>
-                            <th scope="row"><%= resume.resumeId %></th>
-                            <td><%= resume.resumeMonth %></td>
-                            <td><%= resume.resumeYear %></td>
-                            <td><%= resume.resumeTitle %></td>
-                            <td><%= resume.resumeDescription%></td>
+                            <th scope="row"><%= resume.id %></th>
+                            <td><%= resume.month %></td>
+                            <td><%= resume.year %></td>
+                            <td><%= resume.title %></td>
+                            <td><%= resume.description%></td>
                            
 
                             <td>
-                                <a href="/edit/<%= resume.resumeId %>" target="_blank" rel="noopener" class="btn btn-sm btn-light">Edit</a>
-                                <a href="/delete/<%= resume.resumeId %>" class="btn btn-sm btn-light">Delete</a>
+                                <a href="/editresume/<%= resume.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-light">Edit</a>
+                                <a href="/deleteresume/<%= resume.id %>" class="btn btn-sm btn-light">Delete</a>
                             </td>
                         </tr>
                     <% }) %>

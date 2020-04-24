@@ -60,11 +60,11 @@ module.exports = {
         });
     },
     editResume: (req, res) => {
-        let resumeId = req.params.resumeId;
+        let resumeId = req.params.id;
         let month = req.body.month;
         let year = req.body.year;
-        let title = req.body.resumeTitle;
-        let description = req.body.resumeDescription;
+        let resumeTitle = req.body.title;
+        let resumeDescription = req.body.description;
         
 
         let query = "UPDATE `resume` SET `month` = '" + month + "', `year` = '" + year + "',`title` = '" + resumeTitle + "', `description` = '" + resumeDescription + "' WHERE `resume`.`id` = '" + resumeId + "'";
