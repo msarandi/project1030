@@ -1,0 +1,38 @@
+<%- include ('./partials/header.ejs') %>
+    <div class="table-wrapper">
+        <% if (resumes.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Month</th>
+                        <th scope="col">Year</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% resumes.forEach((resume, index) => { %>
+                        <tr>
+                            <th scope="row"><%= resume.resumeId %></th>
+                            <td><%= resume.resumeMonth %></td>
+                            <td><%= resume.resumeYear %></td>
+                            <td><%= resume.resumeTitle %></td>
+                            <td><%= resume.resumeDescription%></td>
+                           
+
+                            <td>
+                                <a href="/edit/<%= resume.resumeId %>" target="_blank" rel="noopener" class="btn btn-sm btn-light">Edit</a>
+                                <a href="/delete/<%= resume.resumeId %>" class="btn btn-sm btn-light">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No resume found. Go <a href="/addresume" >here</a> to add resume.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>

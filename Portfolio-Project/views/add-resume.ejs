@@ -1,0 +1,27 @@
+<%- include ('./partials/header.ejs') %>
+    <div class="container">
+        <% if (message != '') { %>
+            <p class="text-center text-danger"><%= message %></p>
+        <% } %>
+        <form class="add-resume-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="month" id="month" placeholder="month" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="year" id="year" placeholder="year" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="resumeTitle" id="title" placeholder="title" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="resumeDescription" id="description" placeholder="description" required>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary float-right">Add To Resume</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -7,6 +7,8 @@ const app = express();
 
 const {getHomePage} = require('./routes/index');
 const {addPortfolioPage, addPortfolio, deletePortfolio, editPortfolio, editPortfolioPage} = require('./routes/portfolio');
+const {getResumeHomePage} = require ('./routes/index');
+const {addResumePage, addResume, deleteResume, editResume, editResumePage} = require('./routes/resume');
 const port = 3000;
 
 // create connection to database
@@ -36,7 +38,7 @@ app.use(bodyParser.json()); // parse form data client
 app.use(express.static(path.join(__dirname, 'public'))); // configure express to use public folder
 app.use(fileUpload()); // configure fileupload
 
-// routes
+// Portfolio Routes
 app.get('/', getHomePage);
 app.get('/add', addPortfolioPage);
 app.get('/edit/:id', editPortfolioPage);
@@ -44,7 +46,13 @@ app.get('/delete/:id', deletePortfolio);
 app.post('/add', addPortfolio); 
 app.post('/edit/:id', editPortfolio); 
 
-
+// Resume Routes
+app.get('/resume', getResumeHomePage);
+app.get('/addresume', addResumePage);
+app.get('/editresume/:id', editResumePage);
+app.get('/deleteresume/:id', deleteResume); 
+app.post('/addresume', addResume); 
+app.post('/editresume/:id', editResume); 
 
 
 // set the app to listen on the port
