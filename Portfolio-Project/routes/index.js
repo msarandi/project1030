@@ -27,6 +27,21 @@ module.exports = {
             });
         });
     },
+
+    getContactHomePage: (req, res) => {
+        let query = "SELECT * FROM FS1030.contact ORDER BY id ASC"; 
+
+        // execute query
+        db.query(query, (err, result) => {
+            if (err) {
+                res.redirect('/contact');
+            }
+            res.render('contact-index.ejs', {
+                title: "Welcome | View contact"
+                ,contacts: result
+            });
+        });
+    },
   
 
 

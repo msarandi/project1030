@@ -1,0 +1,33 @@
+<%- include ('./partials/header.ejs') %>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (contacts) { %>
+        <form class="add-contact-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="month">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="firstname" value="<%= contacts.firstname %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="year">Year</label>
+                    <input type="text" class="form-control" name="lastName" id="lastname" value="<%= contacts.lastname %>" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" name="contactEmail" id="email" value="<%= contacts.email %>" required>
+                </div>
+                
+            </div>
+            <button type="submit" class="btn btn-success float-right">Update contact</button>
+        </form>
+    <% } else { %>
+        <p class="text-center">contact Submission Not Found. Go <a href="/addcontact">here</a> to add to contact.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>

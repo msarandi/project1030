@@ -9,6 +9,9 @@ const {getHomePage} = require('./routes/index');
 const {addPortfolioPage, addPortfolio, deletePortfolio, editPortfolio, editPortfolioPage} = require('./routes/portfolio');
 const {getResumeHomePage} = require ('./routes/index');
 const {addResumePage, addResume, deleteResume, editResume, editResumePage} = require('./routes/resume');
+const {getContactHomePage} = require ('./routes/index');
+const {addContactPage, addContact, deleteContact, editContact, editContactPage} = require('./routes/contact');
+
 const port = 3000;
 
 // create connection to database
@@ -53,6 +56,16 @@ app.get('/editresume/:id', editResumePage);
 app.get('/deleteresume/:id', deleteResume); 
 app.post('/addresume', addResume); 
 app.post('/editresume/:id', editResume); 
+
+
+// Contact Routes
+app.get('/contact', getContactHomePage);
+app.get('/addcontact', addContactPage);
+app.get('/editcontact/:id', editContactPage);
+app.get('/deletecontact/:id', deleteContact); 
+app.post('/addcontact', addContact); 
+app.post('/editcontact/:id', editContact); 
+
 
 
 // set the app to listen on the port
