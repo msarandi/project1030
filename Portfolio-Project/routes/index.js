@@ -17,7 +17,7 @@ module.exports = {
 
     
     getPortfolioHomePage: (req, res) => {
-        let query = "SELECT * FROM FS1030.portfolio ORDER BY id ASC"; 
+        let query = "SELECT * FROM portfolio ORDER BY id ASC"; 
 
         // execute query
         db.query(query, (err, result) => {
@@ -31,7 +31,7 @@ module.exports = {
         });
     },
     getResumeHomePage: (req, res) => {
-        let query = "SELECT * FROM FS1030.resume ORDER BY id ASC"; 
+        let query = "SELECT * FROM resume ORDER BY id ASC"; 
 
         // execute query
         db.query(query, (err, result) => {
@@ -46,7 +46,7 @@ module.exports = {
     },
 
     getContactHomePage: (req, res) => {
-        let query = "SELECT * FROM FS1030.contact ORDER BY id ASC"; 
+        let query = "SELECT * FROM contact ORDER BY id ASC"; 
 
         // execute query
         db.query(query, (err, result) => {
