@@ -5,12 +5,13 @@ const mysql = require('mysql');
 const path = require('path');
 const app = express();
 
-const {getHomePage} = require('./routes/index');
+const {getPortfolioHomePage} = require('./routes/index');
 const {addPortfolioPage, addPortfolio, deletePortfolio, editPortfolio, editPortfolioPage} = require('./routes/portfolio');
 const {getResumeHomePage} = require ('./routes/index');
 const {addResumePage, addResume, deleteResume, editResume, editResumePage} = require('./routes/resume');
 const {getContactHomePage} = require ('./routes/index');
 const {addContactPage, addContact, deleteContact, editContact, editContactPage} = require('./routes/contact');
+
 
 const port = 3000;
 
@@ -41,13 +42,13 @@ app.use(bodyParser.json()); // parse form data client
 app.use(express.static(path.join(__dirname, 'public'))); // configure express to use public folder
 app.use(fileUpload()); // configure fileupload
 
-// Portfolio Routes
-app.get('/', getHomePage);
+// Portfolio Routes 
+/*app.get('/', getHomePage);
 app.get('/add', addPortfolioPage);
 app.get('/edit/:id', editPortfolioPage);
 app.get('/delete/:id', deletePortfolio); 
 app.post('/add', addPortfolio); 
-app.post('/edit/:id', editPortfolio); 
+app.post('/edit/:id', editPortfolio); */
 
 // Resume Routes
 app.get('/resume', getResumeHomePage);
@@ -65,6 +66,15 @@ app.get('/editcontact/:id', editContactPage);
 app.get('/deletecontact/:id', deleteContact); 
 app.post('/addcontact', addContact); 
 app.post('/editcontact/:id', editContact); 
+
+
+// P Routes
+app.get('/portfolio', getPortfolioHomePage);
+app.get('/addportfolio', addPortfolioPage);
+app.get('/editportfolio/:id', editPortfolioPage);
+app.get('/deleteportfolio/:id', deletePortfolio); 
+app.post('/addportfolio', addPortfolio); 
+app.post('/editportfolio/:id', editPortfolio); 
 
 
 

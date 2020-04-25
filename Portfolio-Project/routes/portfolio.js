@@ -38,7 +38,7 @@ module.exports = {
                             if (err) {
                                 return res.status(500).send(err);
                             }
-                            res.redirect('/');
+                            res.redirect('/portfolio');
                         
                     });
                 });
@@ -62,14 +62,14 @@ module.exports = {
         let portfolioId = req.params.id;
         let title = req.body.title;
         let description = req.body.description;
-        let number = req.body.number;
+        
 
         let query = "UPDATE `portfolio` SET `title` = '" + title + "', `description` = '" + description + "' WHERE `portfolio`.`id` = '" + portfolioId + "'";
         db.query(query, (err, result) => {
             if (err) {
                 return res.status(500).send(err);
             }
-            res.redirect('/');
+            res.redirect('/portfolio');
         });
     },
   
@@ -85,7 +85,7 @@ module.exports = {
                     if (err) {
                         return res.status(500).send(err);
                     }
-                    res.redirect('/');
+                    res.redirect('/portfolio');
                 });
             }
 
