@@ -5,6 +5,8 @@ const mysql = require('mysql');
 const path = require('path');
 const app = express();
 
+const {getLogInPage} = require('./routes/index');
+const {getLandingPage} = require('./routes/index');
 const {getPortfolioHomePage} = require('./routes/index');
 const {addPortfolioPage, addPortfolio, deletePortfolio, editPortfolio, editPortfolioPage} = require('./routes/portfolio');
 const {getResumeHomePage} = require ('./routes/index');
@@ -41,14 +43,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // parse form data client
 app.use(express.static(path.join(__dirname, 'public'))); // configure express to use public folder
 app.use(fileUpload()); // configure fileupload
+app.use( express.static( "public" ) );
 
-// Portfolio Routes 
-/*app.get('/', getHomePage);
-app.get('/add', addPortfolioPage);
-app.get('/edit/:id', editPortfolioPage);
-app.get('/delete/:id', deletePortfolio); 
-app.post('/add', addPortfolio); 
-app.post('/edit/:id', editPortfolio); */
+// Log In Routes 
+app.get('/', getLogInPage);
+
+//Landing Page
+app.get('/admin', getLandingPage)
+
 
 // Resume Routes
 app.get('/resume', getResumeHomePage);

@@ -1,6 +1,7 @@
 const fs = require('fs');
 
 module.exports = {
+
     addPortfolioPage: (req, res) => {
         res.render('add-portfolio.ejs', {
             title: "Welcome | Add To Portfolio"
