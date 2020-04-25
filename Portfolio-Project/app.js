@@ -5,6 +5,7 @@ const mysql = require('mysql');
 const path = require('path');
 const app = express();
 
+
 const {getLogInPage} = require('./routes/index');
 const {getLandingPage} = require('./routes/index');
 const {getPortfolioHomePage} = require('./routes/index');
@@ -17,8 +18,7 @@ const {addContactPage, addContact, deleteContact, editContact, editContactPage} 
 
 const port = 3000;
 
-// create connection to database
-// the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
+// connection to database
 const db = mysql.createConnection ({
     host: 'localhost',
     user: 'nodeclient',
@@ -35,7 +35,7 @@ db.connect((err) => {
 });
 global.db = db;
 
-// configure middleware
+// middleware
 app.set('port', process.env.port || port); // set express to use this port
 app.set('views', __dirname + '/views'); // set express to look in this folder to render our view
 app.set('view engine', 'ejs'); // configure template engine
@@ -50,7 +50,6 @@ app.get('/', getLogInPage);
 
 //Landing Page
 app.get('/admin', getLandingPage)
-
 
 // Resume Routes
 app.get('/resume', getResumeHomePage);
@@ -70,7 +69,7 @@ app.post('/addcontact', addContact);
 app.post('/editcontact/:id', editContact); 
 
 
-// P Routes
+// Portfolio Routes
 app.get('/portfolio', getPortfolioHomePage);
 app.get('/addportfolio', addPortfolioPage);
 app.get('/editportfolio/:id', editPortfolioPage);

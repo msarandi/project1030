@@ -1,4 +1,6 @@
-<%- include ('./partials/header.ejs') %>
+<!-- Show Resume Submissions -->
+    
+    <%- include ('./partials/header.ejs') %>
     <div class="table-wrapper">
         <h2>Resume Submissions:</h2>
         <% if (resumes.length > 0) {%>
@@ -21,7 +23,7 @@
                             <td><%= resume.title %></td>
                             <td><%= resume.description%></td>
                            
-
+                <!-- Update and Delete Resume Submissions -->
                             <td>
                                 <a href="/editresume/<%= resume.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-light">Edit</a>
                                 <a href="/deleteresume/<%= resume.id %>" class="btn btn-sm btn-light">Delete</a>
