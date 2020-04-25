@@ -1,28 +1,31 @@
 <%- include ('./partials/header.ejs') %>
 <div class="container">
     <% if (message) { %>
-        <p class="text-center text-danger"><%= message %></p>
+    <p class="text-center text-danger"><%= message %></p>
     <% } %>
 
     <% if (portfolios) { %>
-        <form class="add-portfolio-form" action="" method="post" enctype="multipart/form-data">
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="title">Title</label>
-                    <input type="text" class="form-control" name="title" id="title" value="<%= portfolios.title %>" required>
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="description">Description</label>
-                    <input type="text" class="form-control" name="description" id="description" value="<%= portfolios.description %>" required>
-                </div>
-                
+    <form class="add-portfolio-form" action="" method="post" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" name="title" id="title" value="<%= portfolios.title %>"
+                    required>
             </div>
-            <button type="submit" class="btn btn-light float-right">Update Portfolio</button>
-        </form>
+            <div class="form-group col-md-4">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" name="description" id="description"
+                    value="<%= portfolios.description %>" required>
+            </div>
+
+        </div>
+        <button type="submit" class="btn btn-light float-right">Update Portfolio</button>
+    </form>
     <% } else { %>
-        <p class="text-center">Portfolio Submission Not Found. Go <a href="/addportfolio">here</a> to add to Portfolio.</p>
+    <p class="text-center">Portfolio Submission Not Found. Go <a href="/addportfolio">here</a> to add to Portfolio.</p>
     <% } %>
 </div>
 </div>
 </body>
+
 </html>

@@ -1,38 +1,39 @@
-
 <%- include ('./partials/header.ejs') %>
 <div class="container">
     <% if (message) { %>
-        <p class="text-center text-danger"><%= message %></p>
+    <p class="text-center text-danger"><%= message %></p>
     <% } %>
 
     <% if (resumes) { %>
-        <form class="add-resume-form" action="" method="post" enctype="multipart/form-data">
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="month">Month</label>
-                    <input type="text" class="form-control" name="month" id="month" value="<%= resumes.month %>" required>
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="year">Year</label>
-                    <input type="text" class="form-control" name="year" id="year" value="<%= resumes.year %>" required>
-                </div>
-
-                <div class="form-group col-md-4">
-                    <label for="title">Title</label>
-                    <input type="text" class="form-control" name="title" id="title" value="<%= resumes.title %>" required>
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="description">Description</label>
-                    <input type="text" class="form-control" name="description" id="description" value="<%= resumes.description %>" required>
-                </div>
-                
+    <form class="add-resume-form" action="" method="post" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="month">Month</label>
+                <input type="text" class="form-control" name="month" id="month" value="<%= resumes.month %>" required>
             </div>
-            <button type="submit" class="btn btn-light float-right">Update Resume</button>
-        </form>
+            <div class="form-group col-md-4">
+                <label for="year">Year</label>
+                <input type="text" class="form-control" name="year" id="year" value="<%= resumes.year %>" required>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" name="title" id="title" value="<%= resumes.title %>" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" name="description" id="description"
+                    value="<%= resumes.description %>" required>
+            </div>
+
+        </div>
+        <button type="submit" class="btn btn-light float-right">Update Resume</button>
+    </form>
     <% } else { %>
-        <p class="text-center">Resume Submission Not Found. Go <a href="/addresume">here</a> to add to Resume.</p>
+    <p class="text-center">Resume Submission Not Found. Go <a href="/addresume">here</a> to add to Resume.</p>
     <% } %>
 </div>
 </div>
 </body>
+
 </html>

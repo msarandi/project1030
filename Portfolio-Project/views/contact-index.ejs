@@ -3,40 +3,42 @@
 <%- include ('./partials/header.ejs') %>
 
 
-    <div class="table-wrapper">
-        <h2>Contact Submissions:</h2>
-        <% if (contacts.length > 0) {%>
-            <table class="table table-hover">
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% contacts.forEach((contact, index) => { %>
-                        <tr>
-                            <th scope="row"><%= contact.id %></th>
-                            <td><%= contact.firstname %></td>
-                            <td><%= contact.lastname %></td>
-                            <td><%= contact.email %></td>
-                            
-                           
+<div class="table-wrapper">
+    <h2>Contact Submissions:</h2>
+    <% if (contacts.length > 0) {%>
+    <table class="table table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% contacts.forEach((contact, index) => { %>
+            <tr>
+                <th scope="row"><%= contact.id %></th>
+                <td><%= contact.firstname %></td>
+                <td><%= contact.lastname %></td>
+                <td><%= contact.email %></td>
 
-                            <td>
-                                <a href="/editcontact/<%= contact.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-light">Edit</a>
-                                <a href="/deletecontact/<%= contact.id %>" class="btn btn-sm btn-light">Delete</a>
-                            </td>
-                        </tr>
-                    <% }) %>
-                </tbody>
-            </table>
-        <% } else { %>
-            <p class="text-center">No contact found. Go <a href="/addcontact" >here</a> to add contact.</p>
-        <% } %>
-    </div>
+
+
+                <td>
+                    <a href="/editcontact/<%= contact.id %>" target="_blank" rel="noopener"
+                        class="btn btn-sm btn-light">Edit</a>
+                    <a href="/deletecontact/<%= contact.id %>" class="btn btn-sm btn-light">Delete</a>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <% } else { %>
+    <p class="text-center">No contact found. Go <a href="/addcontact">here</a> to add contact.</p>
+    <% } %>
+</div>
 </div>
 </body>
+
 </html>

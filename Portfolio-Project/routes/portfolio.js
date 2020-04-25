@@ -5,7 +5,7 @@ module.exports = {
     addPortfolioPage: (req, res) => {
         res.render('add-portfolio.ejs', {
             title: "Welcome | Add To Portfolio"
-            ,message: ''
+            , message: ''
         });
     },
     addPortfolio: (req, res) => {
@@ -16,8 +16,9 @@ module.exports = {
         let message = '';
         let title = req.body.title;
         let description = req.body.description;
-       
 
+
+        // SQL statement sent to db to retrive from contact table to retrieve column named title to check if data already exists 
 
         let titleQuery = "SELECT * FROM `portfolio` WHERE title = '" + title + "'";
 
@@ -31,20 +32,23 @@ module.exports = {
                     message,
                     title: "Welcome | Add To Portfolio"
                 });
-            } 
-                        // send the submission details to the database
-                        let query = "INSERT INTO `portfolio` (title, description) VALUES ('" +
-                            title + "', '" + description + "')";
-                        db.query(query, (err, result) => {
-                            if (err) {
-                                return res.status(500).send(err);
-                            }
-                            res.redirect('/portfolio');
-                        
-                    });
-                });
-                    
+            }
+
+            // If not existing, SQL statement sent to db to add a new row to contact table
+            let query = "INSERT INTO `portfolio` (title, description) VALUES ('" +
+                title + "', '" + description + "')";
+            db.query(query, (err, result) => {
+                if (err) {
+                    return res.status(500).send(err);
+                }
+                res.redirect('/portfolio');
+
+            });
+        });
+
     },
+
+    //SQL statement to retrieve row from portfolio table through id selected 
     editPortfolioPage: (req, res) => {
         let portfolioId = req.params.id;
         let query = "SELECT * FROM `portfolio` WHERE id = '" + portfolioId + "' ";
@@ -54,8 +58,8 @@ module.exports = {
             }
             res.render('edit-portfolio.ejs', {
                 title: "Edit Portfolio"
-                ,portfolios: result[0]
-                ,message: ''
+                , portfolios: result[0]
+                , message: ''
             });
         });
     },
@@ -63,8 +67,8 @@ module.exports = {
         let portfolioId = req.params.id;
         let title = req.body.title;
         let description = req.body.description;
-        
 
+        //SQL statement to update row from portfolio table through id selected 
         let query = "UPDATE `portfolio` SET `title` = '" + title + "', `description` = '" + description + "' WHERE `portfolio`.`id` = '" + portfolioId + "'";
         db.query(query, (err, result) => {
             if (err) {
@@ -73,25 +77,24 @@ module.exports = {
             res.redirect('/portfolio');
         });
     },
-  
-  
-  
- deletePortfolio: (req, res) => {
+
+    //SQL statement to delete row from portfolio table through id selected 
+
+    deletePortfolio: (req, res) => {
         let portfolioId = req.params.id;
         let deleteUserQuery = 'DELETE FROM `portfolio` WHERE id = "' + portfolioId + '"';
 
-        
-           
-                db.query(deleteUserQuery, (err, result) => {
-                    if (err) {
-                        return res.status(500).send(err);
-                    }
-                    res.redirect('/portfolio');
-                });
+
+
+        db.query(deleteUserQuery, (err, result) => {
+            if (err) {
+                return res.status(500).send(err);
             }
+            res.redirect('/portfolio');
+        });
+    }
 
-        }; 
+};
 
-    
 
-    
+
